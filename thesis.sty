@@ -1,0 +1,91 @@
+% THESIS STYLE FOR MSC, PHD THESES. 
+% Works with book style. May work with other styles.
+% INSTRUCTIONS
+%
+% use \title{} to specify title, 
+%     \author{} to specify author,
+%     \subject{} to specify subject,
+%     \abstract{} to specify abstract. 
+%
+% use \phd
+%     \mscwithhonours
+%     \mscthesisonly
+%     \mscbothparts
+%     \otherdegree{}
+%     to specify degree
+%
+% use \maketitle AFTER everything has been specified.
+
+\renewcommand{\baselinestretch}{1.24} 
+% 1.5 spacing for 12pt see p53 of Goossens etc
+
+% setting the margins...
+\setlength{\textheight}{19.8cm}
+
+\if@twoside
+       \setlength{\oddsidemargin}{1.46cm}
+       \setlength{\evensidemargin}{0.83cm}
+\else 
+       \setlength{\oddsidemargin}{1.46cm}
+\fi
+
+% to declare the degree
+
+\def\phd{\gdef\@degree{Doctor of Philosophy}}
+\def\mscthesisonly{\gdef\@degree{Master of Science}}
+\def\mscwithhonours{\gdef\@degree{Master of Science with Honours} \gdef\@ffil{partial fulfilment}}
+\def\mscbothparts{\gdef\@degree{Master of Science} \gdef\@ffil{partial fulfilment}}
+\def\otherdegree#1{\gdef\@degree{#1}}
+\gdef\@degree{DEGREE NOT STATED}
+\gdef\@ffil{fulfilment}
+
+% to declare the subject
+\def\subject#1{\gdef\@subject{#1}}
+\gdef\@subject{SUBJECT NOT STATED}
+
+\newcommand{\abstract}[1]{\gdef\@abstract{#1}}
+
+% putting it together
+\def\maketitle{\begin{titlepage}
+\thispagestyle{empty}
+ \let\footnotesize\small
+ \let\footnoterule\relax
+ \if@twoside\setcounter{page}{-1}\else\setcounter{page}{0}\fi
+ \null
+
+ \begin{center}
+  \parbox{100mm}{\center\LARGE\bf\@title}\par
+  \vspace*{\stretch{1}}
+  \parbox{100mm}{\center by}\par
+  \vspace*{\stretch{1}}
+  \parbox{100mm}{\center\large\@author}\par
+  \vspace*{\stretch{1}}
+  \parbox{100mm}{\center
+                         A thesis\\ 
+                         submitted to the Seattle University\\ 
+                         in \@ffil\ of the\\
+                         requirements for the degree of\\  
+                         \@degree \\ 
+                         in \@subject.}\par
+ 
+ \parbox{100mm}{\center Seattle University\\ \number\year}
+\end{center}
+
+\pagestyle{empty}
+\if@twoside\cleardoublepage\else\clearpage\fi
+\mbox{}\vspace{20mm}
+\begin{center}
+{\Large\bf Abstract}
+\end{center}
+\@abstract
+\end{titlepage}
+\gdef\@author{}
+\gdef\@title{}
+\gdef\@degree{}
+\gdef\@ffil{}
+\gdef\@subject{}
+\gdef\@abstract{}
+\let\maketitle\relax
+}
+
+

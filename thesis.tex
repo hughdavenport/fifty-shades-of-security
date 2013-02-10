@@ -1,0 +1,109 @@
+\documentclass[12pt, a4paper, twoside, openright]{book}
+
+\usepackage{thesis} % sets up some local things, mostly the front page
+
+\usepackage{palatino} % sets palatino as the default font
+
+\usepackage{url} % for typesetting urls
+
+\usepackage{hyperref}
+
+\usepackage{graphicx}
+
+\usepackage{array}
+
+\usepackage{verbatim}
+
+\usepackage{amsfonts}
+
+\usepackage{rotating}
+
+\usepackage[T1]{fontenc}
+
+\usepackage{listings}
+
+\usepackage{parskip}
+
+%\synctex=1
+
+
+\usepackage{color}
+\newcommand{\todo}[1]{}%\textbf{\color{blue}TODO: ***** \{#1\} *****}}
+
+
+
+%\renewcommand{\baselinestretch}{1.00}
+
+
+\begin{document}
+
+\frontmatter
+% Book style knows about front matter
+% Report style doesn't so you need to set roman numbering etc yourself :-(
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\title{Fifty Shades of Security}
+\author{Hugh Davenport}
+
+\subject{Security Engineering}
+\include{thesis-abstract}
+% Books don't normally have abstracts, and this is a bit of a hack
+
+% Uncomment the appropriate degree
+%\phd
+%\mscthesisonly
+%\mscwithhonours
+%\mscbothparts
+ \otherdegree{Master in Adult Literature}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+\maketitle
+
+\include{thesis-acknowledge}
+
+\tableofcontents
+
+\listoffigures
+
+\listoftables
+
+ 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% book style knows about mainmatter
+% if you are using report style you will have to rest page numbering etc.
+\mainmatter
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% individual chapters included here
+
+\include{01-entry-point}
+\include{02-past-partners}
+\include{03-desires}
+\include{04-arousal}
+\include{05-act}
+\include{06-neighbours-opinion}
+\include{07-feeling}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% and of course book style knows about backmatter
+% \backmatter caused problems with appendices :-(
+% and of course report style doesn't
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%\bibliographystyle{ieeetr}
+\bibliographystyle{acm}
+\bibliography{thesis}
+
+
+\end{document}
